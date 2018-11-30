@@ -1,0 +1,23 @@
+version: '3'
+services:
+
+  nginx:
+    restart: always
+    image: nginx-custom
+    build:  
+      dockerfile: Dockerfile
+      context: ./nginx
+    ports:
+      - '8000:80'
+  country:
+    image: country
+    build:      
+      dockerfile: Dockerfile
+      context: ./countries
+
+  airport:
+    image: airport
+    build:
+      dockerfile: Dockerfile
+      context: ./airports
+
